@@ -1,0 +1,10 @@
+{
+  "name": "hetubev2",
+  "version": "1.0.0",
+  "description": "Cloning youtube re",
+  "main": "index.js",
+  "author": "fancypicture",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
