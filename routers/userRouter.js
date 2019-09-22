@@ -6,9 +6,12 @@ const userRouter = express.Router();
 
 
 userRouter.get(routes.users, users);
-userRouter.get(routes.userDetail, userDetail);
-userRouter.get(routes.editProfile, editProfile);
+
+userRouter.get(routes.editProfile, editProfile); //순서가 매우 중요함
 userRouter.get(routes.changePassword, changePassword);
+userRouter.get(routes.userDetail, userDetail);
+
+
 
 
 export default userRouter;
