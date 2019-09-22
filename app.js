@@ -8,6 +8,7 @@ import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
 import routes from "./routes";
+import { localsMiddleware } from "./middlewares";
 
 const app = express();
 
@@ -15,11 +16,16 @@ const app = express();
 
 
 //미들웨어
+app.use(helmet());  
+app.set("view engine","pug"); //express에서 app.set(name,value)로 앱을 설정해서 pug를 사용함 
+                              //pug를 사용하기전 view engine 설정 기본값은 undefined임
+                              //app.set("views", "./picture"); // view 폴더를 picture로 변경하고 싶을때 이렇게 작성함
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(helmet());  
 app.use(morgan("dev"));
+app.use(localsMiddleware);
+
 
 
 
