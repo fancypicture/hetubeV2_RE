@@ -1,17 +1,18 @@
 import express from "express";
 import routes from "../routes";
-import { videos, upload, videoDetail, editVideo, deleteVideo } from "../controllers/videoControllers";
+import { videos, postUpload, getUpload, videoDetail, editVideo, deleteVideo } from "../controllers/videoControllers";
 
 const videoRouter = express.Router();
 
 
 
 //videoRouter.get(routes.videos, videos);
-videoRouter.get(routes.upload, upload);
+videoRouter.get(routes.upload, getUpload);
+videoRouter.post(routes.upload, postUpload);
 
 videoRouter.get(routes.editVideo, editVideo);
 videoRouter.get(routes.deleteVideo, deleteVideo);
-videoRouter.get(routes.videoDetail, videoDetail); //순서가 중요함 /:id 때문
+videoRouter.get(routes.videoDetail(), videoDetail); //순서가 중요함 /:id 때문
 
 
 
